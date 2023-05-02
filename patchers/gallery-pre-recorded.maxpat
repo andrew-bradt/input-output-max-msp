@@ -54,12 +54,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-6",
-					"linecount" : 6,
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 173.0, 143.5, 150.0, 87.0 ],
-					"text" : "- add buffer to play 2 ch pre-recorded gallery\n\n- add argument for dynamically determined gain"
+					"patching_rect" : [ 50.0, 69.5, 150.0, 33.0 ],
+					"text" : "- add buffer to play 2 ch pre-recorded gallery"
 				}
 
 			}
