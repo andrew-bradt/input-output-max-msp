@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 0,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -70,8 +70,8 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 50.0, 240.0, 60.0, 22.0 ],
-					"text" : "mc.*~ 0.1"
+					"patching_rect" : [ 50.0, 240.0, 117.0, 22.0 ],
+					"text" : "mc.*~ 0.1 @chans 2"
 				}
 
 			}

@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 5,
-			"revision" : 0,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -40,13 +40,61 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-11",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 730.0, 431.5, 32.0, 22.0 ],
+					"text" : "start"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 695.0, 431.5, 31.0, 22.0 ],
+					"text" : "stop"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "" ],
+					"patching_rect" : [ 695.0, 399.5, 44.0, 22.0 ],
+					"text" : "sel 0 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 695.0, 332.0, 55.5, 55.5 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-24",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 667.5, 263.0, 80.0, 22.0 ],
-					"text" : "mc.combine~"
+					"patching_rect" : [ 667.5, 263.0, 138.0, 22.0 ],
+					"text" : "mc.combine~ @chans 3"
 				}
 
 			}
@@ -66,7 +114,7 @@
 				"box" : 				{
 					"id" : "obj-21",
 					"maxclass" : "newobj",
-					"numinlets" : 1,
+					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 667.5, 190.0, 44.0, 22.0 ],
@@ -77,24 +125,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-20",
-					"linecount" : 6,
+					"linecount" : 11,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 644.0, 446.5, 101.0, 87.0 ],
-					"text" : "mc.dac~\n\nproposed routing\n1: Pencil L\n2: Pencil R\n3/4: Headphones"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-11",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "multichannelsignal", "multichannelsignal" ],
-					"patching_rect" : [ 667.5, 151.5, 92.0, 22.0 ],
-					"text" : "mc.separate~ 2"
+					"patching_rect" : [ 466.0, 365.5, 101.0, 154.0 ],
+					"text" : "mc.dac~\n\ninput:\n1 - Pencil L\n2 - Pencil R\n\nOutput:\n1-2 Gallery Mix (Master & Headphone 1)\n3 - Goose"
 				}
 
 			}
@@ -104,7 +140,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 667.5, 318.0, 54.0, 22.0 ],
+					"patching_rect" : [ 667.5, 472.0, 54.0, 22.0 ],
 					"text" : "mc.dac~"
 				}
 
@@ -121,22 +157,17 @@
 				}
 
 			}
-, 			{
-				"box" : 				{
-					"id" : "obj-3",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 667.5, 119.0, 54.0, 22.0 ],
-					"text" : "mc.adc~"
-				}
-
-			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-21", 0 ],
+					"destination" : [ "obj-9", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
 					"source" : [ "obj-11", 0 ]
 				}
 
@@ -164,58 +195,72 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-10", 0 ],
+					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-3", 0 ]
+					"source" : [ "obj-7", 1 ]
 				}
 
 			}
  ],
 		"dependency_cache" : [ 			{
 				"name" : "arduino-interface.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "gallery-pre-recorded.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "gallery.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "geese-far.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "geese-near.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "geese.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "mic-feed.maxpat",
-				"bootpath" : "~/exhibition_may_2023/arduino/max-msp/lib",
-				"patcherrelativepath" : "./lib",
+				"bootpath" : "~/exhibition_may_2023/max-msp/patchers",
+				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
