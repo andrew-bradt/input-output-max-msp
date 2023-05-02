@@ -58,7 +58,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 168.0, 168.0, 150.0, 87.0 ],
+					"patching_rect" : [ 173.0, 143.5, 150.0, 87.0 ],
 					"text" : "- add buffer to play 2 ch pre-recorded gallery\n\n- add argument for dynamically determined gain"
 				}
 
@@ -71,7 +71,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
 					"patching_rect" : [ 50.0, 240.0, 117.0, 22.0 ],
-					"text" : "mc.*~ 0.1 @chans 2"
+					"text" : "mc.*~ #1 @chans 2"
 				}
 
 			}
